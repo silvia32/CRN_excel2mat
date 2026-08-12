@@ -16,7 +16,7 @@ CRN_excel2mat/
 └── convert_sbml_to_mat.m       # Converts SBML structures into MATLAB (.mat) format
 ```
 
-##  How to use this workflow with your own data.
+##  How to use this workflow with your own data
 
 Step 1: Prepare your input in xlsx format
 Create or place your excel file inside the excel_data/ folder.
