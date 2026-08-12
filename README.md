@@ -2,7 +2,7 @@
 
 Workflow to convert Excel CRNs data into SBML and MATLAB (.mat) formats. Uses Python for SBML generation and MATLAB for structure finalization. Useful for analyzing chemical reaction networks and doing simulations.
 
-## 📁 Repository Structure
+##  Repository Structure
 
 
 CRN_excel2mat/
@@ -13,7 +13,7 @@ CRN_excel2mat/
 ├── convert_excel_to_sbml.py    # Parses Excel data and generates SBML models
 └── convert_sbml_to_mat.m       # Converts SBML structures into MATLAB (.mat) format
 
-How to use this workflow with your own data.
+##  How to use this workflow with your own data.
 
 Step 1: Prepare your input in xlsx format
 Create or place your excel file inside the excel_data/ folder.
@@ -29,4 +29,5 @@ Once your Excel file contains both table_S3 (reactions) and table_S1 (species), 
 Step 4: Convert the SBML into a MATLAB (.mat) structure
 Open MATLAB, set your working directory to the project folder, and run the MATLAB script. This will load the SBML files from CRN_sbml/ and save the final finalized model structures into the CRN_mat/ folder.
 
+## 
 Once the conversion process is complete, the final .mat structures can be directly loaded and used for network analysis and simulations using external tools, such as the CRC_CRN repository developed by the MIDA group https://github.com/theMIDAgroup/CRC_CRN.
