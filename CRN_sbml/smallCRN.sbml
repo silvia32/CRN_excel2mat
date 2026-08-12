@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
+  <model substanceUnits="mole" timeUnits="second">
+    <listOfUnitDefinitions>
+      <unitDefinition id="nanmol">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-9" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="per_sec">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="per_nanmol_per_sec">
+        <listOfUnits>
+          <unit kind="mole" exponent="-1" scale="9" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="c1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="A" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="true"/>
+      <species id="B" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="A_B" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="BpT" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="C" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="BpT_C" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="CpS" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="D" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="D_BpT" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="DpT_BpT" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="DpT" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="DpT_C" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="E" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="DpT_E" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="DpS" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="F" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="DpS_F" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="G" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="DpT_G" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+      <species id="Gp" compartment="c1" initialAmount="0" substanceUnits="nanmol" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="k1" value="0.06" units="per_nanmol_per_sec"/>
+      <parameter id="k2" value="0.0033" units="per_sec"/>
+      <parameter id="k3" value="41.66" units="per_sec"/>
+      <parameter id="k4" value="0.0066" units="per_sec"/>
+      <parameter id="k5" value="0.0015" units="per_nanmol_per_sec"/>
+      <parameter id="k6" value="0.001" units="per_sec"/>
+      <parameter id="k7" value="11.3" units="per_sec"/>
+      <parameter id="k8" value="0.3962" units="per_sec"/>
+      <parameter id="k9" value="0.1066" units="per_nanmol_per_sec"/>
+      <parameter id="k10" value="0.3998" units="per_sec"/>
+      <parameter id="k11" value="0.66" units="per_sec"/>
+      <parameter id="k12" value="0.0066" units="per_nanmol_per_sec"/>
+      <parameter id="k13" value="0.066" units="per_sec"/>
+      <parameter id="k14" value="0.0015" units="per_nanmol_per_sec"/>
+      <parameter id="k15" value="0.001" units="per_sec"/>
+      <parameter id="k16" value="11.3" units="per_sec"/>
+      <parameter id="k17" value="0.01" units="per_nanmol_per_sec"/>
+      <parameter id="k18" value="0.01" units="per_sec"/>
+      <parameter id="k19" value="20" units="per_sec"/>
+      <parameter id="k20" value="0.0012" units="per_nanmol_per_sec"/>
+      <parameter id="k21" value="0.4842" units="per_sec"/>
+      <parameter id="k22" value="1.8" units="per_sec"/>
+      <parameter id="k23" value="0.0066" units="per_nanmol_per_sec"/>
+      <parameter id="k24" value="0.0066" units="per_sec"/>
+      <parameter id="k25" value="1" units="per_sec"/>
+      <parameter id="k26" value="0.3" units="per_sec"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="R1" reversible="true">
+        <listOfReactants>
+          <speciesReference species="A"/>
+          <speciesReference species="B"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="A_B"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k1 </ci>
+                <ci> A </ci>
+                <ci> B </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k2 </ci>
+                <ci> A_B </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R2" reversible="false">
+        <listOfReactants>
+          <speciesReference species="A_B"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="BpT"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k3 </ci>
+              <ci> A_B </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R3" reversible="false">
+        <listOfReactants>
+          <speciesReference species="BpT"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="B"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k4 </ci>
+              <ci> BpT </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R4" reversible="true">
+        <listOfReactants>
+          <speciesReference species="BpT"/>
+          <speciesReference species="C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="BpT_C"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k5 </ci>
+                <ci> BpT </ci>
+                <ci> C </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k6 </ci>
+                <ci> BpT_C </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R5" reversible="false">
+        <listOfReactants>
+          <speciesReference species="BpT_C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="B"/>
+          <speciesReference species="C"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k7 </ci>
+              <ci> BpT_C </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R6" reversible="false">
+        <listOfReactants>
+          <speciesReference species="CpS"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k8 </ci>
+              <ci> CpS </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R7" reversible="true">
+        <listOfReactants>
+          <speciesReference species="D"/>
+          <speciesReference species="BpT"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="D_BpT"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k9 </ci>
+                <ci> D </ci>
+                <ci> BpT </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k10 </ci>
+                <ci> D_BpT </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R8" reversible="false">
+        <listOfReactants>
+          <speciesReference species="D_BpT"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DpT_BpT"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k11 </ci>
+              <ci> D_BpT </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R9" reversible="true">
+        <listOfReactants>
+          <speciesReference species="DpT_BpT"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DpT"/>
+          <speciesReference species="BpT"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k12 </ci>
+                <ci> DpT_BpT </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k13 </ci>
+                <ci> DpT </ci>
+                <ci> BpT </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R10" reversible="true">
+        <listOfReactants>
+          <speciesReference species="DpT"/>
+          <speciesReference species="C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DpT_C"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k14 </ci>
+                <ci> DpT </ci>
+                <ci> C </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k15 </ci>
+                <ci> DpT_C </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R11" reversible="false">
+        <listOfReactants>
+          <speciesReference species="DpT_C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="D"/>
+          <speciesReference species="C"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k16 </ci>
+              <ci> DpT_C </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R12" reversible="true">
+        <listOfReactants>
+          <speciesReference species="DpT"/>
+          <speciesReference species="E"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DpT_E"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k17 </ci>
+                <ci> DpT </ci>
+                <ci> E </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k18 </ci>
+                <ci> DpT_E </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R13" reversible="false">
+        <listOfReactants>
+          <speciesReference species="DpT_E"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="D"/>
+          <speciesReference species="E"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k19 </ci>
+              <ci> DpT_E </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R14" reversible="true">
+        <listOfReactants>
+          <speciesReference species="DpS"/>
+          <speciesReference species="F"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DpS_F"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k20 </ci>
+                <ci> DpS </ci>
+                <ci> F </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k21 </ci>
+                <ci> DpS_F </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R15" reversible="false">
+        <listOfReactants>
+          <speciesReference species="DpS_F"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="D"/>
+          <speciesReference species="F"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k22 </ci>
+              <ci> DpS_F </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R16" reversible="true">
+        <listOfReactants>
+          <speciesReference species="DpT"/>
+          <speciesReference species="G"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DpT_G"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k23 </ci>
+                <ci> DpT </ci>
+                <ci> G </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k24 </ci>
+                <ci> DpT_G </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R17" reversible="false">
+        <listOfReactants>
+          <speciesReference species="DpT_G"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DpT"/>
+          <speciesReference species="Gp"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k25 </ci>
+              <ci> DpT_G </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R18" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Gp"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="G"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k26 </ci>
+              <ci> Gp </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
+
