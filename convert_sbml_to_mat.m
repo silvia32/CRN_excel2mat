@@ -6,7 +6,7 @@ addpath('./funcs')
 
 % Load data
 file_name = 'smallCRN';
-modelObj = sbmlimport(fullfile('mim_mTOR_sbml', sprintf('%s.sbml', file_name)));
+modelObj = sbmlimport(fullfile('CRN_sbml', sprintf('%s.sbml', file_name)));
 
 % Create MIM structure and fill it
 FMIM = struct;
@@ -63,5 +63,5 @@ FMIM.matrix.Nl = f_compute_semipositive_conservations(S);
 FMIM = f_elemental_species_values_smallCRN(FMIM);
 
 %% Save
-save_path = './mim_mTOR_mat';
+save_path = './CRN_mat';
 save(fullfile(save_path, sprintf('%s.mat', file_name)), 'FMIM')
