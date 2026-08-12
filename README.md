@@ -4,7 +4,7 @@ Workflow to convert Excel CRNs data into SBML and MATLAB (.mat) formats. Uses Py
 
 ##  Repository Structure
 
-
+```text
 CRN_excel2mat/
 │
 ├── excel_data/                 # Folder containing input Excel files (e.g., Table S3)
@@ -12,6 +12,7 @@ CRN_excel2mat/
 ├── extract_excel_species.py    # Extracts species from reactions and creates Table S1
 ├── convert_excel_to_sbml.py    # Parses Excel data and generates SBML models
 └── convert_sbml_to_mat.m       # Converts SBML structures into MATLAB (.mat) format
+```
 
 ##  How to use this workflow with your own data.
 
